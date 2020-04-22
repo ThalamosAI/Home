@@ -54,7 +54,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:#ff6600;stroke-width:1.36834"
+       style="fill:#ffffff;stroke-width:1.36834"
        id="path442"
        cx="478.31845"
        cy="433.76199"
@@ -75,12 +75,12 @@
        rx="147.2563"
        ry="150.73117" />
     <ellipse
-       style="fill:#007cf5;stroke-width:0.638461;fill-opacity:1"
+       style="fill:#007cf5;fill-opacity:1;stroke-width:0.656097"
        id="path442-3-5"
-       cx="579.18573"
-       cy="475.65457"
-       rx="137.57155"
-       ry="229.69537" />
+       cx="584.70801"
+       cy="487.15823"
+       rx="143.09384"
+       ry="233.19904" />
     <ellipse
        ry="90.222343"
        rx="145.89476"
