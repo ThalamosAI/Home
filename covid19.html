@@ -36,12 +36,74 @@
     	<center>
 			<div class="jumbotron jumbotron-fluid">
 			  <div class="container">
-				<h1 class="display-4"><b>Compartmental Modeling of Microparasitic Infectious Diseases Such as COVID-19<b></h1>
+				<h1 class="display-5"><b>Compartmental Modeling of Microparasitic Infectious Diseases Such as COVID-19<b></h1>
 				<p class="lead">Maharshi R. Pandya, Akshay R. Kapadia</p>
 			  	<p class="lead">05/10/2020</p>
 			  </div>
 			</div>
 		</center>
+		<div>
+			<p>
+			With the prevalence of coronavirus, it has become more important to take decisive actions based on quantitative data. Mathematical models can help decision makers implement effective strategies to mitigate the spread of such diseases. It is important to note that these models are based on specific assumptions and therefore do not convey any clinical advice but instead provide invaluable information to administrators. This information is especially important in times like these when the dynamics of diseases such as COVID-19 are somewhat unknown.
+			</p>
+			<h5><b>Model Architecture:<b></h5>
+			<p>
+			In a simple SIR model, the total population can be divided into three compartments: Susceptible, Infected, and Recovered [1]. Differential equations can effectively explain the relationships between these compartments and provide us ways to model a dynamic system.  In this article, we’ve extended the SIR model to create a SEIRDL model, in which population is divided into the following 6 compartments:
+			</p>
+			<ul>
+				<li>S(t) = Total susceptible population at time t</li>
+				<li>E(t) = Total population exposed to the infectant</li>
+				<li>I(t) = Total infected population at time t</li>
+				<li>R(t) = Total recovered population at time t</li>
+				<li>D(t) = Total deaths due to the disease at time t</li>
+				<li>L(t) = Total population under lockdown at time t</li>
+			</ul>
+			<p>
+			The relationship between these compartments is depicted in the model displayed in Figure 1. 
+			</p>
+			<img href="./images/figure1.png"></img>
+			<p>
+			Figure 1. The SEIRDL model with each box depicting a specific compartment. Arrows pointing to the boxes indicate additions to the respective compartment and arrows pointing out of the boxes indicate removal from the respective compartments.
+			</p>
+			<h5><b>Model Explanation:<b></h5>
+			<p>
+			The change in the susceptible compartment is dependent on the rates of inflow and outflow of people per day. Total expected births in the total population is controlled by the overall birth rate for the given population. In our model, newborns are not treated differently from adults in terms of their susceptibility to the disease and therefore total newborns per day are added to the susceptible compartment. The exact nature of many infectious diseases is also not completely known. For example, it is currently not known if a single exposure to COVID-19 procures enough immunity for a recovered individual to stay healthy and not get a second infection. This is why some individuals losing their immunity from the recovered compartment are added to the susceptible compartment. The enforcement of a lockdown causes a sudden decrease in the susceptible population as most of the population is now in the lockdown compartment. While the lockdown is ongoing, the lockdown population is still being removed by natural deaths. The termination of the lockdown brings back the entire lockdown population back into the susceptible compartment. Within the susceptible population, people are removed as they die of natural causes. Upon initiation of a vaccination, the susceptible population can be thought of as being recovered and therefore directly moving from the susceptible compartment to the recovered compartment. 
+		</p>
+		<p>
+The force of infection defines the rate at which the susceptible population is getting exposed to a virus. Exposure to the virus moves individuals from the susceptible compartment to the exposed compartment. The virally exposed population is also being removed by natural deaths occurring within this compartment. Upon the expiration of the incubation period, the exposed individuals become infected and therefore are moved from the exposed compartment to the infected compartment. The infected population is being removed by natural deaths occurring within this compartment. In addition, infected individuals dying specifically from the infectious disease are moved to the dead compartment. Those surviving are moved to the recovered compartment. The flow of this is controlled by the rate of recovery. Within the recovered population, people dying of natural causes are removed along with people losing their immunity and becoming susceptible again. The total susceptible population receiving vaccines is moved to the recovered compartment and the flow is controlled by the rate of vaccination. 
+		</p>
+		<h5><b>Model Parameters:<b></h5>
+		<ul>
+		 	<li>= Birth rate (# born / day)</li>
+ 			<li>= Natural death rate</li>
+			<li>(t) = Infection rate = the rate of transmission of the disease = Re(t)</li>
+ 			<li>= Rate at which exposed individuals become infected = (incubation period)-1 </li>
+ 			<li>= Rate of recovery</li>
+ 			<li>= Rate of death due to the disease</li>
+ 			<li>= Rate at which people die = (No. of days it takes from exposure to death)-1</li>
+ 			<li>= Rate at which recovered individuals lose immunity and become susceptible again</li>
+			<li>(t) = Lockdown (start) rate = Percent of population getting under lockdown each day</li>
+			<li>(t) = Lockdown (end) rate = Percent of population under lockdown becoming susceptible each day</li>
+			<li>(t) = Rate of vaccination </li>
+  			<li>= Infectious period = -1</li>
+			<li>F  = Force of infection = IN, where I/N is relative proportion of the infected individuals, namely, frequency or prevalence of infection</li>
+			<li>R0 = Basic reproduction number = average secondary infections produced by an infected individual = constant for a disease</li>
+			<li>Re(t)  = Effective reproduction number at time t</li>
+		</ul>
+		<p>
+		Based on the model depicted in Figure 1 and the set of variables controlling the relationships between various compartments, a first-order linear equation can be written for each of the compartments. 
+		</p>
+		<h5><b>Model Equations:<b></h5>
+		<ul>
+			<li>S'(t)=εNt+ γRt+ξLt- βStItNt-(θ+ϕ+μ)St</li>
+			<li>E't= βStItNt-(δ+μ)Et</li>
+			<li>I't=δEt-αρIt-υ(1-α)I(t)-μI(t)</li>
+			<li>R't=υ1-αIt+ϕSt-γRt-μR(t)</li>
+			<li>D't=αρIt</li>
+			<li>L't=θSt-ξLt-μL(t)</li>
+			<li>Initial Conditions: S0=N-1, E0=1, I0=0, R0=0, D0=0, L0=0.</li>
+		</ul>
+		</div>
     </div>
 
     <footer class="footer" style="background-color: #ffffff; color: lightgrey; padding-bottom: 20px; padding-top: 20px">
