@@ -4,29 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" type="image/svg" href="./images/favicon.svg">
+    <link rel="icon" type="image/svg" href="../images/favicon.svg">
     <title>Thalamos | Covid 19</title>
   </head>
   <body data-spy="scroll" data-target="#navbar" style="font-family: Georgia, serif">
     <header>
       <nav id="navbar" class="navbar navbar-expand-lg navbar-light navbar-light fixed-top" style="background-color: #ffffff;">
-        <a class="navbar-brand" href="./index.html">
-          <img src="./images/favicon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../images/favicon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           <b>Thalamos</b>
         </a>
         <ul class="nav nav-pills mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="./index.html" role="button" aria-haspopup="true" aria-expanded="false">Our Work</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="../index.html" role="button" aria-haspopup="true" aria-expanded="false">Our Work</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Covid 19</a>
             </div>
           </li>
           <li class="nav-item dropdown" style="font-size: 20;">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="./index.html" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="../index.html" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="./index.html#mission">Our Mission</a>
-              <a class="dropdown-item" href="./index.html#why">Why It's Important</a>
-              <a class="dropdown-item" href="./index.html#team">Our Team</a>
+              <a class="dropdown-item" href="../index.html#mission">Our Mission</a>
+              <a class="dropdown-item" href="../index.html#why">Why It's Important</a>
+              <a class="dropdown-item" href="../index.html#team">Our Team</a>
             </div>
         </ul>
       </nav>
@@ -68,41 +68,42 @@
 			<h5><b>Model Explanation:<b></h5>
 			<p>
 			The change in the susceptible compartment is dependent on the rates of inflow and outflow of people per day. Total expected births in the total population is controlled by the overall birth rate for the given population. In our model, newborns are not treated differently from adults in terms of their susceptibility to the disease and therefore total newborns per day are added to the susceptible compartment. The exact nature of many infectious diseases is also not completely known. For example, it is currently not known if a single exposure to COVID-19 procures enough immunity for a recovered individual to stay healthy and not get a second infection. This is why some individuals losing their immunity from the recovered compartment are added to the susceptible compartment. The enforcement of a lockdown causes a sudden decrease in the susceptible population as most of the population is now in the lockdown compartment. While the lockdown is ongoing, the lockdown population is still being removed by natural deaths. The termination of the lockdown brings back the entire lockdown population back into the susceptible compartment. Within the susceptible population, people are removed as they die of natural causes. Upon initiation of a vaccination, the susceptible population can be thought of as being recovered and therefore directly moving from the susceptible compartment to the recovered compartment. 
-		</p>
-		<p>
+			</p>
+			<p>
 The force of infection defines the rate at which the susceptible population is getting exposed to a virus. Exposure to the virus moves individuals from the susceptible compartment to the exposed compartment. The virally exposed population is also being removed by natural deaths occurring within this compartment. Upon the expiration of the incubation period, the exposed individuals become infected and therefore are moved from the exposed compartment to the infected compartment. The infected population is being removed by natural deaths occurring within this compartment. In addition, infected individuals dying specifically from the infectious disease are moved to the dead compartment. Those surviving are moved to the recovered compartment. The flow of this is controlled by the rate of recovery. Within the recovered population, people dying of natural causes are removed along with people losing their immunity and becoming susceptible again. The total susceptible population receiving vaccines is moved to the recovered compartment and the flow is controlled by the rate of vaccination. 
-		</p>
-		<h5><b>Model Parameters:<b></h5>
-		<ul>
-		 	<li>= Birth rate (# born / day)</li>
- 			<li>= Natural death rate</li>
-			<li>(t) = Infection rate = the rate of transmission of the disease = Re(t)</li>
- 			<li>= Rate at which exposed individuals become infected = (incubation period)-1 </li>
- 			<li>= Rate of recovery</li>
- 			<li>= Rate of death due to the disease</li>
- 			<li>= Rate at which people die = (No. of days it takes from exposure to death)-1</li>
- 			<li>= Rate at which recovered individuals lose immunity and become susceptible again</li>
-			<li>(t) = Lockdown (start) rate = Percent of population getting under lockdown each day</li>
-			<li>(t) = Lockdown (end) rate = Percent of population under lockdown becoming susceptible each day</li>
-			<li>(t) = Rate of vaccination </li>
-  			<li>= Infectious period = -1</li>
-			<li>F  = Force of infection = IN, where I/N is relative proportion of the infected individuals, namely, frequency or prevalence of infection</li>
-			<li>R0 = Basic reproduction number = average secondary infections produced by an infected individual = constant for a disease</li>
-			<li>Re(t)  = Effective reproduction number at time t</li>
-		</ul>
-		<p>
+			</p>
+			<h5><b>Model Parameters:<b></h5>
+			<ul>
+			 	<li>= Birth rate (# born / day)</li>
+	 			<li>= Natural death rate</li>
+				<li>(t) = Infection rate = the rate of transmission of the disease = Re(t)</li>
+	 			<li>= Rate at which exposed individuals become infected = (incubation period)-1 </li>
+	 			<li>= Rate of recovery</li>
+	 			<li>= Rate of death due to the disease</li>
+	 			<li>= Rate at which people die = (No. of days it takes from exposure to death)-1</li>
+	 			<li>= Rate at which recovered individuals lose immunity and become susceptible again</li>
+				<li>(t) = Lockdown (start) rate = Percent of population getting under lockdown each day</li>
+				<li>(t) = Lockdown (end) rate = Percent of population under lockdown becoming susceptible each day</li>
+				<li>(t) = Rate of vaccination </li>
+	  			<li>= Infectious period = -1</li>
+				<li>F  = Force of infection = IN, where I/N is relative proportion of the infected individuals, namely, frequency or prevalence of infection</li>
+				<li>R0 = Basic reproduction number = average secondary infections produced by an infected individual = constant for a disease</li>
+				<li>Re(t)  = Effective reproduction number at time t</li>
+			</ul>
+			<p>
 		Based on the model depicted in Figure 1 and the set of variables controlling the relationships between various compartments, a first-order linear equation can be written for each of the compartments. 
-		</p>
-		<h5><b>Model Equations:<b></h5>
-		<ul>
-			<li>S'(t)=εNt+ γRt+ξLt- βStItNt-(θ+ϕ+μ)St</li>
-			<li>E't= βStItNt-(δ+μ)Et</li>
-			<li>I't=δEt-αρIt-υ(1-α)I(t)-μI(t)</li>
-			<li>R't=υ1-αIt+ϕSt-γRt-μR(t)</li>
-			<li>D't=αρIt</li>
-			<li>L't=θSt-ξLt-μL(t)</li>
-			<li>Initial Conditions: S0=N-1, E0=1, I0=0, R0=0, D0=0, L0=0.</li>
-		</ul>
+			</p>
+			<h5><b>Model Equations:<b></h5>
+			<ul>
+				<li>S'(t)=εNt+ γRt+ξLt- βStItNt-(θ+ϕ+μ)St</li>
+				<li>E't= βStItNt-(δ+μ)Et</li>
+				<li>I't=δEt-αρIt-υ(1-α)I(t)-μI(t)</li>
+				<li>R't=υ1-αIt+ϕSt-γRt-μR(t)</li>
+				<li>D't=αρIt</li>
+				<li>L't=θSt-ξLt-μL(t)</li>
+				<li>Initial Conditions: S0=N-1, E0=1, I0=0, R0=0, D0=0, L0=0.</li>
+			</ul>
+			
 		</div>
     </div>
 
