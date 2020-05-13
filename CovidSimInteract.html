@@ -1,17 +1,16 @@
-
-
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8" />
+
+<head>
+  <meta charset="utf-8" />
 
 
-<title>CovidSimInteract</title>
+  <title>CovidSimInteract</title>
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+  <!-- Loading mathjax macro -->
+  <!-- Load mathjax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+  <!-- MathJax configuration -->
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -28,87 +27,90 @@
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
+  <!-- End of mathjax configuration -->
 
-<style>
-        .cell.nbinteract-left {
-            width: 50%;
-            float: left;
-        }
+  <style>
+    .cell.nbinteract-left {
+      width: 50%;
+      float: left;
+    }
 
-        .cell.nbinteract-right {
-            width: 50%;
-            float: right;
-        }
+    .cell.nbinteract-right {
+      width: 50%;
+      float: right;
+    }
 
-        .cell.nbinteract-hide_in > .input {
-            display: none;
-        }
+    .cell.nbinteract-hide_in>.input {
+      display: none;
+    }
 
-        .cell.nbinteract-hide_out > .output_wrapper {
-            display: none;
-        }
+    .cell.nbinteract-hide_out>.output_wrapper {
+      display: none;
+    }
 
-        .cell:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
+    .cell:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
-        div.output_subarea {
-            max-width: initial;
-        }
+    div.output_subarea {
+      max-width: initial;
+    }
 
-        .jp-OutputPrompt {
-            display: none;
-        }
-    </style></head>
+    .jp-OutputPrompt {
+      display: none;
+    }
+  </style>
+</head>
+
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container">
-      
-
-
-
-  <div class="cell text_cell">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
 
 
 
 
-  
+      <div class="cell text_cell">
+        <button class="js-nbinteract-widget">
+          Loading widgets...
+        </button>
+      </div>
 
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+
+
+      <div class="cell border-box-sizing code_cell rendered" style="display: none;">
+        <div class="input">
+          <div class="inner_cell">
+            <div class="input_area">
+              <div class=" highlight hl-ipython3">
+                <pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">odeint</span>
 <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">FloatSlider</span><span class="p">,</span> <span class="n">Layout</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline 
-</pre></div>
+</pre>
+              </div>
 
-    </div>
-</div>
-</div>
+            </div>
+          </div>
+        </div>
 
-  </div>
+      </div>
 
-  
 
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">derive</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">R_0</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">ppl</span><span class="p">,</span> <span class="n">ppo</span><span class="p">,</span> <span class="n">startVac</span><span class="p">,</span> <span class="n">ppv</span><span class="p">):</span>
+      <div class="
+      cell border-box-sizing code_cell rendered"  style="display: none;">
+        <div class="input">
+
+          <div class="inner_cell">
+            <div class="input_area">
+              <div class=" highlight hl-ipython3">
+                <pre><span></span><span class="k">def</span> <span class="nf">derive</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">R_0</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">ppl</span><span class="p">,</span> <span class="n">ppo</span><span class="p">,</span> <span class="n">startVac</span><span class="p">,</span> <span class="n">ppv</span><span class="p">):</span>
     <span class="n">S</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">y</span>
     <span class="n">S_0</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span>
     <span class="n">dSdt</span> <span class="o">=</span> <span class="p">(</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">xi</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">ppo</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R_0</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">S_0</span><span class="p">,</span> <span class="n">nu</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">mu</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">ppl</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">phi</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">startVac</span><span class="p">,</span> <span class="n">ppv</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
@@ -172,23 +174,25 @@
     <span class="n">S</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">T</span>
     
     <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">D</span>
-</pre></div>
+</pre>
+              </div>
 
-    </div>
-</div>
-</div>
+            </div>
+          </div>
+        </div>
 
-  </div>
+      </div>
 
-  
 
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#def main(R0, InfPeriod, IncPeriod, InfDeath,DaysToDeath, ImmLoss, QuStartDay, QuEndDay,</span>
+      <div class="
+      cell border-box-sizing code_cell rendered"  style="display: none;">
+        <div class="input">
+
+          <div class="inner_cell">
+            <div class="input_area">
+              <div class=" highlight hl-ipython3">
+                <pre><span></span><span class="c1">#def main(R0, InfPeriod, IncPeriod, InfDeath,DaysToDeath, ImmLoss, QuStartDay, QuEndDay,</span>
 <span class="c1">#         ppl, ppo, startVac, ppv):</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">R0</span><span class="p">,</span> <span class="n">InfPeriod</span><span class="p">,</span> <span class="n">IncPeriod</span><span class="p">,</span> <span class="n">InfDeath</span><span class="p">,</span><span class="n">DaysToDeath</span><span class="p">,</span> <span class="n">ImmLoss</span><span class="p">,</span> <span class="n">QuStartDay</span><span class="p">,</span> <span class="n">QuEndDay</span><span class="p">,</span> <span class="n">ppl</span><span class="p">,</span> <span class="n">ppo</span><span class="p">,</span> <span class="n">startVac</span><span class="p">,</span> <span class="n">ppv</span><span class="p">):</span>   
     <span class="n">t</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">UInput</span><span class="p">(</span><span class="mi">170_000</span><span class="p">,</span> <span class="n">R0</span><span class="p">,</span> <span class="n">InfPeriod</span><span class="p">,</span> <span class="n">IncPeriod</span><span class="p">,</span> <span class="n">InfDeath</span><span class="p">,</span><span class="n">DaysToDeath</span><span class="p">,</span> <span class="n">ImmLoss</span><span class="p">,</span> <span class="n">QuStartDay</span><span class="p">,</span> <span class="n">QuEndDay</span><span class="p">,</span> <span class="n">ppl</span><span class="p">,</span> <span class="n">ppo</span><span class="p">,</span> <span class="n">startVac</span><span class="p">,</span> <span class="n">ppv</span><span class="p">)</span>
@@ -206,23 +210,25 @@
     <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
-</pre></div>
+</pre>
+              </div>
 
-    </div>
-</div>
-</div>
+            </div>
+          </div>
+        </div>
 
-  </div>
+      </div>
 
-  
 
-  <div class="
+
+      <div class="
       cell border-box-sizing code_cell rendered">
-    <div class="input">
+        <div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;R_0 Value:&#39;</span><span class="p">),</span>
+          <div class="inner_cell">
+            <div class="input_area">
+              <div class=" highlight hl-ipython3"  style="display: none;">
+                <pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;R_0 Value:&#39;</span><span class="p">),</span>
                <span class="n">InfPeriod</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Infectious Period:&#39;</span><span class="p">),</span>
                <span class="n">IncPeriod</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Incubation Period:&#39;</span><span class="p">),</span>
              <span class="n">InfDeath</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.055</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Infectious Death Rate:&#39;</span><span class="p">),</span> 
@@ -234,87 +240,91 @@
              <span class="n">ppo</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;% Population Out of Lockdown:&#39;</span><span class="p">),</span> 
              <span class="n">startVac</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">365.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Vaccination Start Day&#39;</span><span class="p">),</span> 
              <span class="n">ppv</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Vaccination Rate:&#39;</span><span class="p">))</span>
-</pre></div>
+</pre>
+              </div>
 
-    </div>
-</div>
-</div>
+            </div>
+          </div>
+        </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
+        <div class="output_wrapper">
+          <div class="output">
 
 
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
+            <div class="output_area">
 
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function __main__.main(R0, InfPeriod, IncPeriod, InfDeath, DaysToDeath, ImmLoss, QuStartDay, QuEndDay, ppl, ppo, startVac, ppv)&gt;</pre>
-</div>
 
-</div>
 
-</div>
-</div>
+              <div class="output_subarea output_widget_view ">
+                <button class="js-nbinteract-widget">
+                  Loading widgets...
+                </button>
+              </div>
 
-  </div>
+            </div>
 
-  
+            <div class="output_area">
 
-  <div class="
+
+
+
+
+              <div class="output_text output_subarea output_execute_result">
+                <pre>&lt;function __main__.main(R0, InfPeriod, IncPeriod, InfDeath, DaysToDeath, ImmLoss, QuStartDay, QuEndDay, ppl, ppo, startVac, ppv)&gt;</pre>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="
       cell border-box-sizing code_cell rendered">
-    <div class="input">
+        <div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+          <div class="inner_cell">
+            <div class="input_area">
+              <div class=" highlight hl-ipython3">
+                <pre><span></span> 
+</pre>
+              </div>
 
-    </div>
-</div>
-</div>
+            </div>
+          </div>
+        </div>
 
-  </div>
+      </div>
 
 
 
-<!-- Loads nbinteract package -->
-<script src="https://unpkg.com/nbinteract-core" async></script>
-<script>
-  (function setupNbinteract() {
-    // If NbInteract hasn't loaded, wait one second and try again
-    if (window.NbInteract === undefined) {
-      setTimeout(setupNbinteract, 1000)
-      return
-    }
+      <!-- Loads nbinteract package -->
+      <script src="https://unpkg.com/nbinteract-core" async></script>
+      <script>
+        (function setupNbinteract() {
+          // If NbInteract hasn't loaded, wait one second and try again
+          if (window.NbInteract === undefined) {
+            setTimeout(setupNbinteract, 1000)
+            return
+          }
 
-    var interact = new window.NbInteract({
-      spec: 'maharshipandya/130633eb8ab0982c83df765afb3c4618/master',
-      baseUrl: 'https://mybinder.org',
-      provider: 'gist',
-    })
-    interact.prepare()
+          var interact = new window.NbInteract({
+            spec: 'maharshipandya/130633eb8ab0982c83df765afb3c4618/master',
+            baseUrl: 'https://mybinder.org',
+            provider: 'gist',
+          })
+          interact.prepare()
 
-    window.interact = interact
-  })()
-</script>
+          window.interact = interact
+        })()
+      </script>
     </div>
   </div>
 </body>
+
 </html>
